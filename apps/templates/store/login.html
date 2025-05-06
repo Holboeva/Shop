@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Admin Panel</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #e9eff1;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-box {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 420px;
+            transform: translateY(-10px);
+            transition: transform 0.3s ease-in-out;
+        }
+        .form-box:hover {
+            transform: translateY(0);
+        }
+        .form-box h2 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: #333;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .form-box form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-box input {
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .form-box input:focus {
+            border-color: #007bff;
+        }
+        .form-box button {
+            background-color: #007bff;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-box button:hover {
+            background-color: #0056b3;
+        }
+        .form-box .link {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        .form-box .link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .form-box .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2>Admin Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+        <!-- <div class="link">
+            Don't have an account? <a href="{% url 'register' %}">Register</a>
+        </div> -->
+    </div>
+</body>
+</html>

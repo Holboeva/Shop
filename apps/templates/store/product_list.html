@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Glow & Go | Healthy Food for Girls</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a2d9d5c3dc.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: #fffafc;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero {
+            background: linear-gradient(to right, #ffdde1, #ee9ca7);
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+
+        .motivational-quote {
+            text-align: center;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin: 10px 0 30px;
+            color: #da5f8f;
+        }
+
+        .product-card {
+            background: linear-gradient(145deg, #fff0f5, #f9e3ea);
+            border-radius: 25px;
+            box-shadow: 0 10px 20px rgba(255, 192, 203, 0.3);
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.4);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h5 {
+            color: #e91e63;
+            font-weight: 600;
+        }
+
+        .product-card .price {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .add-cart-form input[type="number"] {
+            border-radius: 20px;
+            padding: 5px 15px;
+            width: 70px;
+            border: 1px solid #ccc;
+        }
+
+        .btn-cart {
+            background: #ff69b4;
+            border: none;
+            color: white;
+            border-radius: 25px;
+            padding: 7px 20px;
+        }
+
+        .btn-cart:hover {
+            background: #f06292;
+        }
+
+        .floating-cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff69b4;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .category-badge {
+            background: #ffe0ec;
+            color: #c2185b;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .admin-link {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .admin-link a {
+            color: #c2185b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .health-tips {
+            background: #e3ffe9;
+            padding: 15px;
+            margin-top: 30px;
+            border-left: 5px solid #28a745;
+            border-radius: 15px;
+            font-size: 0.95rem;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-3">
+
+    <div class="admin-link">
+        <a href="{% url 'login' %}"><i class="fas fa-user-cog"></i> Admin Login</a>
+    </div>
+
+    <div class="hero">
+        <h1>Glow & Go 💪💖</h1>
+        <p>Healthy snacks, glowing energy – made for strong girls like you!</p>
+    </div>
+
+    <div class="motivational-quote">✨ “Nourish to Flourish – You’re Worth It!” ✨</div>
+
+    <form method="get" class="form-inline justify-content-center mb-4">
+        <input type="text" name="search" value="{{ request.GET.search }}" class="form-control mr-2"
+               placeholder="Search products...">
+        <select name="sort" class="form-control mr-2">
+            <option value="">Sort</option>
+            <option value="price">Price ↑</option>
+            <option value="-price">Price ↓</option>
+            <option value="-created_at">Newest</option>
+        </select>
+        <button type="submit" class="btn btn-cart"><i class="fas fa-search"></i> Filter</button>
+    </form>
+
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="{{ product.image.url }}" alt="Placeholder">
+                    <span class="category-badge">{{ product.category }}</span>
+                    <h5>{{ product.name }}</h5>
+                    <p>{{ product.description }}</p>
+                    <p class="price">${{ product.price }}</p>
+                    <form action="{% url 'add_to_cart' product.id %}" method="POST" class="add-cart-form">
+                        {% csrf_token %}
+                        <input type="number" name="quantity" value="1" min="1">
+                        <button type="submit" class="btn btn-cart ml-2"><i class="fas fa-cart-plus"></i> Add</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="health-tips mt-5">
+        💡 <strong>Health Tip:</strong> Eating a small, protein-rich snack after a workout helps boost recovery and keeps
+        your skin glowing!
+    </div>
+</div>
+
+<a href="{% url 'view_cart' %}" class="floating-cart" title="Go to Cart">
+    <i class="fas fa-shopping-bag"></i>
+</a>
+
+</body>
+</html>

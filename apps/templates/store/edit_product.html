@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: 'Segoe UI', sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+        }
+
+        .shop-title {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6f91;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background-color: #ff6f91;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff3366;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background-color: #e2e2e2;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ccc;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        input[type="text"], input[type="number"], input[type="file"], select, textarea {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 15px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+        }
+
+        textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .form-inline input, .form-inline select {
+            border-radius: 20px;
+            padding: 8px 14px;
+            margin-right: 10px;
+        }
+
+        .form-inline button {
+            border-radius: 20px;
+            background-color: #ff6f91;
+            color: white;
+            border: none;
+        }
+
+        .form-inline button:hover {
+            background-color: #ff3366;
+        }
+
+        .text-right a {
+            background-color: #ff6f91;
+            color: white;
+            border-radius: 25px;
+            padding: 12px 24px;
+            font-weight: 500;
+            font-size: 16px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .text-right a:hover {
+            background-color: #ff3366;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="shop-title">Edit Product</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary">Update Product</button>
+        </form>
+        <a href="{% url 'supper_product_list' %}" class="btn btn-secondary mt-3">Back to Product List</a>
+    </div>
+</body>
+</html>

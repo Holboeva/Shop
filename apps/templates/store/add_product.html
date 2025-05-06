@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product | Vazira's Shop</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #fef9f7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #4A4A4A;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #F2A1D7;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .btn-primary {
+            background-color: #F2A1D7;
+            border-color: #F2A1D7;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #F19AC3;
+            border-color: #F19AC3;
+            transform: scale(1.05);
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #e0c9e9;
+            border-radius: 50px;
+            font-weight: bold;
+            color: #4A4A4A;
+            font-size: 1.1em;
+            margin-top: 30px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #D1B1D6;
+            transform: scale(1.05);
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #F2A1D7;
+            font-size: 1.1em;
+        }
+
+        .form-control {
+            border-radius: 15px;
+            border: 1px solid #F2A1D7;
+            padding: 12px 15px;
+            background-color: #f8f8f8;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #F19AC3;
+            box-shadow: 0 0 8px rgba(242, 161, 215, 0.5);
+        }
+
+        .form-control-file {
+            padding: 10px 12px;
+            border-radius: 12px;
+            background-color: #f9f9f9;
+            border: 1px solid #F2A1D7;
+        }
+
+        .file-input-label {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #F2A1D7;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Add New Product</h2>
+    <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="product_name">Product Name</label>
+            <input type="text" class="form-control" id="product_name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="product_description">Product Description</label>
+            <textarea class="form-control" id="product_description" name="description" rows="4"
+                      required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="product_price">Product Price ($)</label>
+            <input type="number" class="form-control" id="product_price" name="price" required>
+        </div>
+        <div class="form-group">
+            <label for="product_image" class="file-input-label">Product Image</label>
+            <input type="file" class="form-control-file" id="product_image" name="image" accept="image/*"
+                   required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Add Product</button>
+    </form>
+    <a href="{% url 'supper_product_list' %}" class="back-btn">Back to Product List</a>
+</div>
+</body>
+</html>
