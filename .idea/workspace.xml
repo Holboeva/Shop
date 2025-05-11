@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dd942ff-5e11-46b8-ba39-b31b78b18df6" name="Changes" comment="" />
+    <list default="true" id="2dd942ff-5e11-46b8-ba39-b31b78b18df6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/static/images/img.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/static/images/camera.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/static/images/console.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/static/images/headphones.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/static/images/laptop.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/static/images/smartphone.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/static/images/smartwatch.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/urls.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +24,21 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Holboeva&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Holboeva/Shop.git&quot;,
+    &quot;accountId&quot;: &quot;5b1cd7f6-402a-4a88-b0c6-c92e3838384c&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
@@ -29,7 +55,9 @@
     &quot;Python.views.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/vazira/PycharmProjects/task7&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -123,6 +151,12 @@
       <workItem from="1746536001564" duration="2442000" />
       <workItem from="1746538739340" duration="635000" />
       <workItem from="1746539724964" duration="620000" />
+      <workItem from="1746546752056" duration="250000" />
+      <workItem from="1746607546658" duration="803000" />
+      <workItem from="1746610193536" duration="769000" />
+      <workItem from="1746690026876" duration="106000" />
+      <workItem from="1746690893428" duration="1951000" />
+      <workItem from="1746696198988" duration="671000" />
     </task>
     <servers />
   </component>
